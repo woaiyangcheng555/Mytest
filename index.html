@@ -1,11 +1,32 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>愿赌不服输</title>
-  </head>
-  <body>
-    <h1>爱小雅，八荣八耻</h1>
-    <p>以深爱老婆为荣，以风流花心为耻。以一心为家为荣，以不负责任为耻。以幽默宽容为荣，以愚昧小气为耻。以共同家务为荣，以只说不做为耻。以细心体贴为荣，以自我中心为耻。以要事交待为荣，以恶意欺骗为耻。以老实听话为荣，以家庭暴力为耻。以努力挣钱为荣，以不求上进为耻。以关心老婆为荣，以忽视老婆为耻，以伺候老婆为荣，以麻烦老婆为耻，以赞美老婆为荣，以批评老婆为耻，以抢干家务为荣，以好逸恶劳为耻，以下班回家为荣，以夜不归宿为耻，以诚实专一为荣，以拈花惹草为耻，以遵守家法为荣，以违法乱纪为耻，以多缴公粮为荣，以私开粮仓为耻。以上缴工资为荣，以窝藏奖金为耻。以爱老婆为荣，以背叛老婆为耻;以关心老婆为荣，以忽略老婆为耻；以为老婆做饭为荣，以让老婆做饭为耻以真心疼老婆为荣，以故意气老婆为耻；以服从老婆为荣，以违背老婆为耻；</p>
-  </body>
+<!doctype html>
+<html ng-app="mymodule">
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+<style>
+h1{
+	text-align:center;
+}
+</style>
+</head>
+<div ng-controller="myctrl">
+<h1>Hello AngularJS</h1>
+<h1>{{ clock|date:'yyyy-MM-dd/HH:mm:ss'}}!</h1>
+</div>
+<script type="text/javascript">
+	var mymodule=angular.module("mymodule",[]);
+		mymodule.controller("myctrl",function($scope,$timeout){
+		var updateClock = function() {
+			$scope.clock = new Date();
+			$timeout(function() {
+			updateClock();
+		}, 1000);
+		};
+		updateClock();
+		});
+
+</script>
+<body>
+</body>
 </html>
