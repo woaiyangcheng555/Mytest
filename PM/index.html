@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>个人医生</title>
+<title>产品经理</title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 <style>
@@ -18,7 +18,7 @@ color: #444;
 </html>
 <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
-var arr = ["感冒 ganmao.html","李四 lisi.html","王五 wangwu.html","阿三 asan.html"];  
+var arr = ["产品经理是什么？ p1.html","李四 lisi.html","王五 wangwu.html","阿三 asan.html"];  
 arr.sort(function(a,b){ 
     return a.localeCompare(b); 
 }); 
@@ -45,7 +45,7 @@ $("#select").click(function(){
         $("#content").html(target);
     }
     else{
-        $("#content").html("<a href='#'>暂未上传，可以在公众号留言，谢谢使用！</a>");
+        $("#content").html("<a href='#'>未找到数据，谢谢使用！</a>");
     }
 });
 </script>
