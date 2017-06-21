@@ -4,6 +4,7 @@
 <title>产品经理</title>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap-grid.min.css" rel="stylesheet">
 <style>
 a{
 padding-right: 10px;
@@ -13,7 +14,10 @@ color: #444;
 </head>
 <body style="margin: 15px 25px;background-color: #89cff0;" />
 <input type="text" id="val" style="margin: 10px;outline: 0;padding: 5px;"><input type="button" value="搜索" style="padding: 3px 10px;" id="select" onClick="select()"/>
-<div id="content"></div>
+<div class="container">
+   <div class="row">     
+   </div>
+</div>
 </body>
 </html>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
@@ -23,9 +27,9 @@ var content="";
 for(var i=0;i<arr.length;i++){
     var str=arr[i];
     var temparr = str.split(" ");
-    content+="<a href="+temparr[1]+">"+temparr[0]+"</a>";
+    content+="<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><a href="+temparr[1]+">"+temparr[0]+"</a></div>";
 }
-$("#content").html(content);
+$(".row").html(content);
 $("#select").click(function(){
     var target="";
     for(var i=0;i<arr.length;i++){
@@ -35,14 +39,14 @@ $("#select").click(function(){
         if(aaa>=0){
             var str=arr[i];
             var temparr0 = str.split(" ");
-            target+="<a href="+temparr0[1]+">"+temparr0[0]+"</a>";
+            target+="<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><a href="+temparr[1]+">"+temparr[0]+"</a></div>";
         }
     }
     if(target!=""){
-        $("#content").html(target);
+        $(".row").html(target);
     }
     else{
-        $("#content").html("<a href='#'>未找到数据，谢谢使用！</a>");
+        $(".row").html("<a href='#'>未找到数据，谢谢使用！</a>");
     }
 });
 </script>
