@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>流程查询</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<link href="https://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap-grid.min.css" rel="stylesheet">
+<style>
+a{
+padding-right: 10px;
+color: #444;
+}
+.row div{
+padding-bottom:10px;
+}
+</style>
+</head>
+<body style="margin: 15px 25px;background-color: #89cff0;" />
+<input type="text" id="val" style="margin: 10px;outline: 0;padding: 5px;"><input type="button" value="搜索" style="padding: 3px 10px;" id="select" onClick="select()"/>
+<div id="content">
+
+</div>
+<div class="container">
+   <div class="row">      
+   </div>
+</div>
+</body>
+</html>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+var arr = ["项目立项流程 lixiangliucheng.html","项目迭代流程 diedailiucheng.html","项目终止流程 zhongzhiliucheng.html","项目迁移流程 qianyiliucheng.html"];  
+arr.sort(function(a,b){ 
+    return a.localeCompare(b); 
+}); 
+var content="";
+for(var i=0;i<arr.length;i++){
+    var str=arr[i];
+    var temparr = str.split(" ");
+    content+="<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><a href="+temparr[1]+">"+temparr[0]+"</a></div>";
+}
+$(".row").html(content);
+$("#select").click(function(){
+    var target="";
+    for(var i=0;i<arr.length;i++){
+        var str=arr[i];
+        var temparr = str.split(" ");
+        var aaa = temparr[0].indexOf($("#val").val());
+        if(aaa>=0){
+            var str=arr[i];
+            var temparr0 = str.split(" ");
+            target+="<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'><a href="+temparr[1]+">"+temparr[0]+"</a></div>";
+        }
+    }
+    if(target!=""){
+        $(".row").html(target);
+    }
+    else{
+        $(".row").html("<a href='#'>未找到数据，谢谢使用！</a>");
+    }
+});
+</script>
